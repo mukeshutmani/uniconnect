@@ -449,6 +449,7 @@ const updatedUserAvatar = asyncHandler( async (req, res) => {
     )
  })
 
+ // watch history endPoints
  const getWatchHistory = asyncHandler( async (req, res) => {
         const user = await User.aggregate([
             {
