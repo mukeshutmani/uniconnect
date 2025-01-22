@@ -176,6 +176,7 @@ const logoutUser = asyncHandler( async (req, res) => {
             $set: { 
                 refreshToken: undefined
             }
+            // unset: { refreshToken: 1 this remove the field from document }
         },
         {
             new: true
@@ -277,7 +278,9 @@ const changeCurrentPassword = asyncHandler( async(req, res) => {
 const getCurrentUser = asyncHandler( async(req, res) => {
     return res
     .status(200)
-    .json(200, await req.user, "Current User fetched Successfully")
+    .json( new ApiResponse(
+        200, await req.user, "Current User fetched Successfully"
+    ))
 })
 
 // updateAccountDetails endPoints
@@ -505,7 +508,7 @@ const updatedUserAvatar = asyncHandler( async (req, res) => {
         return res
         .status(200)
         .json(
-            new ApiResponse(200, user[0].getWatchHistory, " Watch History fetched SuccessFully " )
+            new ApiResponse(200, user[0].watchHistory, " Watch History fetched SuccessFully " )
         )
  })
 
