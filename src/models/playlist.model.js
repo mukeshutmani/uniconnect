@@ -10,6 +10,7 @@ const playlistSchema  = new Schema({
     
     descriptions: {
       type: String,
+      required: true
     },
 
 
