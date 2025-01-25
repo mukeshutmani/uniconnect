@@ -18,13 +18,9 @@ app.use(express.urlencoded({
     limit:"16kb"
 }))
 
-app.use(express.static("public"))
-
 app.use(cookieParser())
 
-
-
-
+app.use(express.static("public"))
 
 
 import router from "./routes/user.routes.js";
@@ -32,9 +28,6 @@ import router from "./routes/user.routes.js";
 // routes decelreation
 app.use("/api/v1/users", router)
 // https://localhost:8000/api/v1/users/register
-
-
-
 
 
 export {app}
